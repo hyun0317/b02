@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/layout1.html}">
+<head>
+    <meta charset="UTF-8">
+    <title>읽기</title>
+</head>
+<body>
+   <div layout:fragment="content">
+       읽기
+
+       <h2>글 읽기</h2>
+       <ul>
+           <li th:each="str: ${list}">
+               <td th:text="${str.title}"></td>
+               <td th:text="${str.content}"></td>
+               <td th:text="${str.writer}"></td>
+           </li>
+       </ul>
+
+   </div>
+</body>
+</html>
