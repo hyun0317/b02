@@ -1,5 +1,6 @@
 package com.example.b02.controller;
 
+import com.example.b02.dto.BoardDTO;
 import com.example.b02.entity.Board;
 import com.example.b02.service.BoardService;
 import lombok.RequiredArgsConstructor;
@@ -24,9 +25,9 @@ public class BoardController {
         log.info("get register....");
     }
     @PostMapping("/register")
-    public String registerPost(Board board){
+    public String registerPost(BoardDTO boardDTO){
         log.info("post register....");
-        boardService.register(board);
+        boardService.register(boardDTO);
         return "redirect:list";
     }
     @GetMapping("/list")
@@ -37,9 +38,9 @@ public class BoardController {
     @GetMapping({"/read", "/modify"})
     public void read(Long bno, Model model){
         log.info(bno);
-       Board board = boardService.read(bno);
+       BoardDTO boardDTO = boardService.read(bno);
         log.info(bno);
-        model.addAttribute("dto",board);
+        model.addAttribute("dto",boardDTO);
     }
     @PostMapping("/modify")
     public String modify(Board board){
