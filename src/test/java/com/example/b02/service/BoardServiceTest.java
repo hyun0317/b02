@@ -2,10 +2,12 @@ package com.example.b02.service;
 
 
 import com.example.b02.dto.BoardDTO;
+import com.example.b02.dto.PageRequestDTO;
 import lombok.extern.log4j.Log4j2;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @SpringBootTest
@@ -50,6 +52,17 @@ public class BoardServiceTest {
     public void deltest(){
 
         boardService.remove(205L);
+    }
+
+    @Test
+    public void testlist(){
+
+        PageRequestDTO pageRequestDTO = PageRequestDTO.builder()
+                .type("tcw")
+                .keyword("53")
+                .page(1)
+                .build();
+        log.info(boardService.list(pageRequestDTO).getTotal());
     }
 
 }
