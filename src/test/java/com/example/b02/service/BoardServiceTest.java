@@ -27,4 +27,13 @@ public class BoardServiceTest {
         log.info(bno);
     }
 
+    @Test
+    public void readTest(){
+
+        BoardDTO boardDTO = boardService.read(250L);
+
+        log.info(boardDTO);
+
+    }
+
 }
