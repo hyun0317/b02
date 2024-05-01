@@ -41,7 +41,14 @@ public class BoardServiceImpl implements BoardService{
     public BoardDTO read(Long bno) {
         Optional<Board> board =
                 boardRepository.findById(bno);
-        BoardDTO boardDTO = modelMapper.map(board.get(),BoardDTO.class);
+        log.info("값 확인" + board.isEmpty());
+
+        if (board == null){
+            return null;
+        }
+
+        BoardDTO boardDTO = modelMapper.map(board.orElseThrow(),BoardDTO.class);
+
         return boardDTO;
     }
 

@@ -6,6 +6,7 @@ import lombok.extern.log4j.Log4j2;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @SpringBootTest
 @Log4j2
@@ -43,6 +44,12 @@ public class BoardServiceTest {
                 .build());
 
         log.info(boardService.read(250L));
+    }
+
+    @Test
+    public void deltest(){
+
+        boardService.remove(205L);
     }
 
 }
