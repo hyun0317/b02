@@ -12,7 +12,7 @@ public interface BoardService {
 
     public BoardDTO read(Long bno);
 
-    public void modify(Board board);
+    public void modify(BoardDTO boardDTO);
 
     public void remove(Long bno);
 }

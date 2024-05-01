@@ -43,8 +43,8 @@ public class BoardController {
         model.addAttribute("dto",boardDTO);
     }
     @PostMapping("/modify")
-    public String modify(Board board){
-        boardService.modify(board);
+    public String modify(BoardDTO boardDTO){
+        boardService.modify(boardDTO);
         return null;
     }
     @PostMapping("/remove")

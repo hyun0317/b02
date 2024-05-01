@@ -36,4 +36,13 @@ public class BoardServiceTest {
 
     }
 
+    @Test
+    public void modifytest(){
+        boardService.modify(BoardDTO.builder()
+                        .bno(250L).title("서비스에서 수정").content("수정한 내용")
+                .build());
+
+        log.info(boardService.read(250L));
+    }
+
 }
